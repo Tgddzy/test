@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doki Doki Web</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+        body {
+            background: #ffe6f2;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s;
+        }
+
+        h1 {
+            color: #ff4d88;
+            cursor: pointer;
+        }
+
+        p {
+            color: #666;
+        }
+
+        /* Hiệu ứng glitch */
+        .glitch {
+            background: black !important;
+            color: red !important;
+            animation: glitchEffect 0.1s infinite alternate;
+        }
+
+        @keyframes glitchEffect {
+            0% { transform: skewX(10deg); }
+            100% { transform: skewX(-10deg); }
+        }
+
+        /* Chế độ đảo ngược */
+        .reverse-text {
+            direction: rtl;
+            unicode-bidi: bidi-override;
+        }
+
+        /* Hiệu ứng nhập liệu */
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ff4d88;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="title">Chào mừng đến với Câu Lạc Bộ Văn Học</h1>
+        <p>Nhập bất kỳ từ nào để khám phá bí mật...</p>
+        <input type="text" id="userInput" placeholder="Gõ vào đây..." oninput="checkInput()">
+    </div>
+
+    <script>
+        function checkInput() {
+            let input = document.getElementById("userInput").value.toLowerCase();
+            let body = document.body;
+            let title = document.getElementById("title");
+
+            // MONIKA
+            if (input === "just monika") {
+                body.innerHTML = "<h1 style='color: red;'>Just Monika.</h1>";
+            } else if (input === "delete") {
+                body.innerHTML = "<h1 style='color: red;'>Trang đã bị xóa.</h1>";
+            } else if (input === "glitch") {
+                body.classList.add("glitch");
+            }
+
+            // SAYORI
+            else if (input === "sayori") {
+                title.innerText = "Cậu có nhớ tớ không?";
+            } else if (input === "rope") {
+                body.innerHTML += "<p style='color: red;'>...</p>";
+            } else if (input === "goodbye") {
+                setTimeout(() => { window.close(); }, 3000);
+            }
+
+            // YURI
+            else if (input === "yuri") {
+                title.innerText = "Tớ không thể để cậu rời đi...";
+                body.style.background = "#330000";
+            } else if (input === "knife") {
+                body.innerHTML += "<p style='color: red;'>🔪</p>";
+            } else if (input === "obsession") {
+                title.innerText = "Tớ yêu cậu mãi mãi...";
+            }
+
+            // NATSUKI
+            else if (input === "natsuki") {
+                title.innerText = "Không còn nữa.";
+                body.style.background = "#111";
+            } else if (input === "father") {
+                body.innerHTML += "<p style='color: red;'>Không nói về chuyện đó.</p>";
+            } else if (input === "manga") {
+                body.classList.add("reverse-text");
+            }
+        }
+    </script>
+
+</body>
+</html>
